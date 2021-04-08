@@ -353,7 +353,7 @@ footer .beian {
   width: 100%;
   height: 380px;
   background-color: #000;
-  background-image: url('/public/img/res/bg_future.jpg');
+  background-image: url('../img/FUTURE.jpg');
   background-position: center;
   background-size: cover;
 }
@@ -955,7 +955,7 @@ footer .beian {
 
 .tree-menu-wrap .type.edit {
   border-color: #c93a3a;
-  background: url('/public/img/res/letter.png') no-repeat center center / contain;
+  background: url('../img/letter.png') no-repeat center center / contain;
 }
 
 .tree-menu-wrap .type.more {
@@ -1675,7 +1675,7 @@ footer .beian {
 }
 
 .text-wrap a i.edit {
-  background-image: url('/public/img/res/letter.png');
+  background-image: url('../img/letter.png');
 }
 
 .text-wrap a i.more {

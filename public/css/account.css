@@ -1,4 +1,4 @@
-.account-container{width:100%;height:100%;background:#ddd url(/public/img/res/bg.jpg) center center/cover}
+.account-container{width:100%;height:100%;background:#ddd url(../img/bg.jpg) center center/cover}
 .account-container .logo-wrap{margin:100px auto 40px;width:400px;height:100px}
 .account-container .account-wrap{margin:0 auto;width:460px;padding:40px 30px;box-sizing:border-box;border-radius:10px;background:#fff;font-size:13px}
 .account-container .account-wrap .top{padding-left:10px;padding-bottom:10px;border-bottom:1px solid #ddd}
