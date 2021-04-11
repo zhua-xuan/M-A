@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+  <meta name="viewport"
+    content="width=device-width,initial-scale=1,maximum-scale=1,minimum-scale=1,user-scalable=no,minimal-ui">
+  <meta name="referrer" content="no-referrer">
+  <meta name="renderer" content="webkit">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta name="keywords" content="猫猫の生活 马里奥，嗷呜">
+  <meta name="description" content="马里奥嗷呜的小生活~">
+  <title>WRITE</title>
+  <link rel="shortcut icon" href="./public/img/shortcut.jpg">
+  <link rel="stylesheet" href="./public/css/account.css">
+  <link rel="stylesheet" href="./public/css/navbar.css">
+  <link rel="stylesheet" href="./public/css/main.css">
+
+
+  <script src="./public/js/hm.js.下载"></script>
+  <script>
+    var _hmt = _hmt || [];
+    (function () {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?cc68c054b58c800c1687d2925e5b40ff";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+</head>
+
+<body>
+
+
+  <div class="nav-container white">
+
+    <div class="menu-wrap">
+      <h1 class="home"><a href="./index.html">M&amp;A</a></h1>
+      <div id="open" class="sub-nav-btn open">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+    </div>
+
+    <div id="nav" class="nav-wrap">
+      <div class="main-nav">
+        <ul class="nav">
+          <li><a href="./index.html">
+              <span class="en">HOME</span>
+              <span class="ch">首页</span>
+              <small>「首页」</small></a></li>
+          <li><a href="./PROFILE.html">
+              <span class="en">PROFILE</span>
+              <span class="ch">它们</span>
+              <div class="line"></div>
+              <small>「它们」</small>
+            </a></li>
+          <li><a href="./RECORD.html">
+              <span class="en">RECORD</span>
+              <span class="ch">成长记录</span>
+              <div class="line"></div>
+              <small>「成长记录」</small>
+            </a></li>
+          <li><a href="./HELP.html">
+              <span class="en">HELP</span>
+              <span class="ch">资助</span>
+              <div class="line"></div>
+              <small>「资助」</small>
+            </a></li>
+          <li><a href="./RELATION.html">
+              <span class="en">RELATION</span>
+              <span class="ch">关系</span>
+              <div class="line"></div>
+              <small>「关系」</small>
+            </a></li>
+          <li><a href="./future.html">
+              <span class="en">FUTURE</span>
+              <span class="ch">未来</span>
+              <div class="line"></div>
+              <small>「未来」</small>
+            </a></li>
+        </ul>
+      </div>
+
+      <div class="sub-nav">
+        <div id="close" class="sub-nav-btn close">
+          <span></span>
+          <span></span>
+        </div>
+        <ul class="nav">
+          <li><a href="./LOGIN.html">LOGIN</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-nav">
+        <ul class="nav">
+          <li><a href="./FAQ.html">FAQ</a></li>
+          <li><a href="./ABOUT.html">关于本站</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <div class="main-container">
+
+    <div class="title-none">
+    </div>
+    <div class="container min-height-700">
+
+      <div class="letter-tips mt-40"><i class="warning"></i>标题和内容的都不可以出现敏感词噢~</div>
+
+      <form id="form" class="cc-form-wrap" action="./LETTER ADD.html" method="POST">
+
+        <div class="form-group">
+          <input type="text" class="form-title" name="title" id="title" placeholder="标题" required="">
+        </div>
+
+        <div class="form-group">
+          <textarea name="content" class="form-content" id="content" cols="100" rows="10" placeholder="请做好备份，谨防误退丢失。"
+            required=""></textarea>
+        </div>
+
+        <div class="form-group">
+          <label for="type" class="form-label">送达至：</label>
+          <div class="form-radio">
+            <label class="radio-inline">
+              <input type="radio" name="type" value="2" checked="" required=""> 两喵
+            </label>
+            <label class="radio-inline">
+              <input type="radio" name="type" value="0"> 马里奥
+            </label>
+            <label class="radio-inline">
+              <input type="radio" name="type" value="1"> 嗷呜
+            </label>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="type" class="form-label">愿意公开：</label>
+          <div class="form-radio">
+            <label class="radio-inline">
+              <input type="radio" name="bPublic" value="1" checked=""> 是
+            </label>
+            <label class="radio-inline">
+              <input type="radio" name="bPublic" value="0"> 否
+            </label>
+          </div>
+        </div>
+
+        <div class="error-container"></div>
+
+        <div class="form-group">
+          <button type="submit" class="btn btn-send">发送</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <script src="./public/js/jquery.min.js.下载"></script>
+
+  <script src="./public/js/main.js.下载"></script>
+
+
+  <script>
+    $(function () {
+
+      var $form = $('#form');
+      $form.bClicked = false;
+
+      $form.submit(function (e) {
+
+        if ($form.bClicked) {
+          e.preventDefault();
+          return false;
+        }
+        $form.bClicked = true;
+      })
+    })
+  </script>
+
+
+
+</body>
+
+</html>

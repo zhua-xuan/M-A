@@ -3,7 +3,7 @@
 
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    
+
     <meta name="viewport"
         content="width=device-width,initial-scale=1,maximum-scale=1,minimum-scale=1,user-scalable=no,minimal-ui">
     <meta name="referrer" content="no-referrer">
@@ -69,7 +69,7 @@
                             <div class="line"></div>
                             <small>「资助」</small>
                         </a></li>
-                   
+
                     <li><a href="./RELATION.html">
                             <span class="en">RELATION</span>
                             <span class="ch">关系</span>
@@ -109,7 +109,13 @@
             <img src="./public/img/banner_m.jpg" alt="MariAo">
         </div>
         <div class="stars-wrap">
-            Now, <span class="number">298</span> Days
+            Now,
+            <span class="number">
+                <body onload="time()">
+                    <h id="showtime"></h>
+                </body>
+            </span> 
+             Days
         </div>
     </div>
 
@@ -130,5 +136,18 @@
 
 
 </body>
+<script>
+    /* 时间 t_div.innerHTML = now.getFullYear() + "/" + (now.getMonth() +1) + "/" + now.getDate() + "/" + now.getHours() + ":" + now.getMinutes() + ":" + now.getSeconds() + "";       
+     setTimeout(time, 1000);              <span class="number">298</span> 
+
+ */
+    function time() {
+        t_div = document.getElementById('showtime');
+        var now = new Date()
+        t_div.innerHTML = (((now.getFullYear() - 2021) * 360) + now.getMonth() * 30 + now.getDate() + 210);
+
+        setTimeout(time, 1000);
+    }
+</script>
 
 </html>

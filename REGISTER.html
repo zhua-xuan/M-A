@@ -11,7 +11,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     <meta name="keywords" content="猫猫の生活 马里奥，嗷呜">
     <meta name="description" content="马里奥嗷呜的小生活~">
-    <title>登录</title>
+    <title>注册</title>
     <link rel="shortcut icon" href="./public/img/shortcut.jpg">
     <link rel="stylesheet" href="./public/css/account.css">
     <link rel="stylesheet" href="./public/css/navbar.css">
@@ -41,38 +41,46 @@
         <div class="account-wrap login-wrap">
 
             <div class="top">
-                <h1>登录</h1>
-                <p>请输入完成注册的昵称（用户名）和密码</p>
+                <h1>注册</h1>
+                <p>欢迎注册该网站（喵喵驿站）的账号（请妥善保管账号）~</p>
             </div>
 
-            <form action="./index.html" method="POST" class="form flex-row">
+            <form action="./REGISTER.html" method="POST" class="form flex-row">
                 <input id="from" type="hidden" name="from" value="timelines_secret">
                 <div class="left">
                     <div class="input-group">
                         <label for="username" class="label">昵称</label>
                         <div class="input-box">
-                            <input type="text" class="input" name="username" id="username" placeholder="昵称" required="">
+                            <input type="text" class="input" name="username" id="username" placeholder="2-16个字符"
+                                required="">
                             <div class="errorTips" id="usernameTips">用户名由2-16位汉字字母数字_组成</div>
                         </div>
                     </div>
                     <div class="input-group">
                         <label for="password" class="label">密码</label>
                         <div class="input-box">
-                            <input type="password" class="input" name="password" id="password" placeholder="密码"
-                                required="">
-                            <div class="errorTips" id="errorTips">密码长度不得小于6个字符</div>
+                            <input type="password" class="input" name="password" id="password"
+                                placeholder="字母、数字、特殊字符（6~16位）" required="">
+                            <div class="errorTips" id="passwordTips">密码长度不得小于6个字符</div>
+                        </div>
+                    </div>
+                    <div class="input-group">
+                        <label for="repassword" class="label">确认密码</label>
+                        <div class="input-box">
+                            <input type="password" class="input" name="repassword" id="repassword"
+                                placeholder="字母、数字、特殊字符（6~16位）" required="">
+                            <div class="errorTips" id="errorTips"></div>
                         </div>
                     </div>
                 </div>
                 <div class="right">
-                    <input type="submit" class="button" id="login" value="登录" required="">
+                    <input type="submit" class="button" id="signup" value="注册" required="">
                 </div>
             </form>
 
-
             <div class="bottom">
-                <p>您还尚未注册该网站的账号吗? <a href="./REGISTER.html">注册&gt;</a></p>
-                <p>若登录之后没有自动跳转 <a href="./index.html">请点击这里&gt;</a></p>
+                <p>您已经注册过该网站的账号吗？ <a href="./LOGIN.html">去登录&gt;</a></p>
+                <p>若注册完成没有自动跳转 <a href="./index.html">请点击这里&gt;</a></p>
             </div>
         </div>
     </div>
@@ -136,12 +144,31 @@
                 }
             }
 
+            var checkRePassword = (password, repassword) => {
+
+                var errorMsg = '';
+                var error = false;
+
+                if (repassword != password) {
+                    error = true;
+                    errorMsg = '两次输入密码不一致'
+                }
+
+                return {
+                    error: error,
+                    errorMsg: errorMsg
+                }
+            }
+
             var $username = $('#username');
             var $password = $('#password');
-            var $login = $('#login');
+            var $repassword = $('#repassword');
+            var $signup = $('#signup');
             var $usernameTips = $('#usernameTips');
+            var $passwordTips = $('#passwordTips');
             var $errorTips = $('#errorTips');
             var bUsername = false;
+            var bPasswordF = false;
             var bPassword = false;
 
 
@@ -163,46 +190,51 @@
                 var re = checkPassword($password.val());
 
                 if (re.error) {
+                    bPasswordF = false;
+                    $passwordTips.html(re.errorMsg);
+                } else {
+                    bPasswordF = true;
+                    $passwordTips.html('');
+                }
+            })
+
+            $repassword.blur(function () {
+
+                var re = checkRePassword($password.val(), $repassword.val());
+
+                if (re.error) {
                     bPassword = false;
                     $errorTips.html(re.errorMsg);
                 } else {
-                    bPassword = true;
+                    bPassword = bPasswordF;
                     $errorTips.html('');
                 }
             })
 
-            $login.on('click', function (ev) {
+            $signup.on('click', function (ev) {
 
                 ev.preventDefault();
 
                 if (bUsername && bPassword) {
 
-                    var username = $username.val();
-                    var password = $password.val();
-                    var from = $('#from').val();
-
                     $.ajax({
                         type: 'post',
-                        url: '/login',
+                        url: '/signup',
                         data: {
-                            username: username,
-                            password: password,
-                            from: from
+                            username: $username.val(),
+                            password: $password.val(),
+                            repassword: $repassword.val(),
+                            from: $('#from').val()
                         },
                         dataType: 'json',
                         success: function (res) {
-
                             $errorTips.html(res.msg);
 
                             if (res.code < 0) {
-                                // location.href = res.url;
-                                // window.open(res.url,'_self');
-                                location.replace(res.url);
+                                window.open(res.url, '_self');
                             }
                         }
                     })
-                } else {
-                    $errorTips.html('用户名或密码不合法，请重新输入');
                 }
             })
         })

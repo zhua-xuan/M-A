@@ -234,67 +234,11 @@ footer .beian {
   /* background: url('/public/img/res/share.png') no-repeat center / contain; */
 }
 
-/* 个人中心用到的icon */
-.ico-home {
-  background-image: url('/public/img/icon/home.png');
-}
-.ico-home.dark {
-  background-image: url('/public/img/icon/home_dark.png');
-}
 
-.ico-bxg {
-  background-image: url('/public/img/icon/bxg.png');
-}
-.ico-bxg.dark {
-  background-image: url('/public/img/icon/bxg_dark.png');
-} 
 
-.ico-nickname {
-  background-image: url('/public/img/icon/edit.png');
-}
-.ico-nickname.dark {
-  background-image: url('/public/img/icon/edit_dark.png');
-}
+/* --------------------------------- 首页 banner title- -------------------------------- */
 
-.ico-password {
-  background-image: url('/public/img/icon/password.png');
-}
-.ico-password.dark {
-  background-image: url('/public/img/icon/password_dark.png');
-}
-/* .ico-password:hover {
-  background-color: #fff;
-  background-image: url('/public/img/icon/password_dark.png');
-} */
-
-.ico-identity {
-  background-image: url('/public/img/icon/identity.png');
-}
-.ico-identity.dark {
-  background-image: url('/public/img/icon/identity_dark.png');
-}
-
-.ico-exit {
-  background-image: url('/public/img/icon/exit.png');
-}
-.ico-exit.dark {
-  background-image: url('/public/img/icon/exit_dark.png');
-}
-/* .ico-exit:hover {
-  background-color: #fff;
-  background-image: url('/public/img/icon/exit_dark.png');
-} */
-
-.ico-letter {
-  background-image: url('/public/img/icon/letter.png');
-}
-.ico-letter.dark {
-  background-image: url('/public/img/icon/letter_dark.png');
-}
-
-/* --------------------------------- 首页 轮播banner 顶部title- -------------------------------- */
-
-/* 轮播 */
+/* 图片 */
 .banner-wrap {
   position: relative;
   width: 100%;
@@ -314,7 +258,7 @@ footer .beian {
   position: relative;
   margin-top: -80px;
   line-height: 80px;
-  font-size: 17px;
+  font-size: 30px;
   font-weight: 700;
   text-align: center;
   color: #fff;
@@ -322,7 +266,7 @@ footer .beian {
 }
 
 .stars-wrap .number {
-  font-size: 40px;
+  font-size: 50px;
   letter-spacing: 2px;
   color: #fff;
 }
@@ -997,7 +941,7 @@ footer .beian {
 }
 
 
-/* -------------------- 他们 profile ----------------------------- */
+/* -------------------- 它们 profile ----------------------------- */
 
 .profile-container {
   /* background: #f4f4f4; */
@@ -1052,7 +996,7 @@ footer .beian {
 }
 
 
-/* -------------------- letters future 2026 ----------------- */
+/* -------------------- letters future  ----------------- */
 .words-wrap {
   display: flex;
   justify-content: space-around;
@@ -1149,7 +1093,7 @@ footer .beian {
   }
 }
 
-/* ---------------------- schedule 行程 ------------------------------------- */
+/* ---------------------- LETTER ------------------------------------- */
 
 .schedule-wrap {
   margin-bottom: 50px;
@@ -2191,9 +2135,8 @@ footer .beian {
   content: 'LOFTER'
 }
 
-.resource-wrap.other::before {
-  content: 'BJYX'
-}
+
+
 
 .resource-wrap .title {
   padding: 30px 0 20px;
@@ -2225,15 +2168,15 @@ footer .beian {
 }
 
 .resource-wrap .title .time .ico-type.gg {
-  background-image: url('/public/img/ggdd/zhan_100.jpg');
+  background-image: url('../img/马里奥头像.jpg');
 }
 
 .resource-wrap .title .time .ico-type.dd {
-  background-image: url('/public/img/ggdd/yibo_100.jpg');
+  background-image: url('../img/嗷呜头像.jpg');
 }
 
 .resource-wrap .title .time .ico-type.cp {
-  background-image: url('/public/img/ggdd/cp_a.jpg');
+  background-image: url('../img/双猫头像.jpg');
 }
 
 .resource-wrap .content {

@@ -102,7 +102,7 @@
           <span></span>
         </div>
         <ul class="nav">
-          <li><a href="./LOGIN.html">LOGIN</a></li>
+          <li><a href="./LOGIN.html">Login</a></li>
         </ul>
       </div>
 
@@ -114,6 +114,7 @@
       </div>
     </div>
   </div>
+
   <div class="main-container">
 
     <div class="visualbg-cover" style="background-image: url(&#39;./public/img/FUTURE.jpg&#39;)">
@@ -122,45 +123,22 @@
       </div>
     </div>
 
-
-    <div id="TopHere" class="container">
-      <div id="words" class="words-wrap">
-        <div class="child red">
-          <div class="avatar" style="background-image: url(&#39;./public/img/嗷呜头像.jpg&#39;)"></div>
-          <div class="words">
-            <div class="word"><span>最近已经不用打针啦。</span></div>
-            <div class="word"><span>陪伴有你</span></div>
-            <div class="word"><span>等身体养好了就可以找领养了</span></div>
-            <div class="word"><span>马里奥拜拜！！！</span></div>
-          </div>
-        </div>
-        <div class="child blue">
-          <div class="avatar" style="background-image: url(&#39;./public/img/马里奥头像.jpg&#39;)"></div>
-          <div class="words">
-            <div class="word"><span>领养人家很好。</span></div>
-            <div class="word"><span>来日方长</span></div>
-            <div class="word"><span>每天在被窝里睡觉</span></div>
-            <div class="word"><span>嗷呜加油！！！</span></div>
-          </div>
-        </div>
-      </div>
-    </div>
-
-   
-
     <div id="letters" class="container">
       <div class="subpage-wrap letters-wrap">
+        <h2 class="title center">已发&nbsp;<span id="lettersCount" class="count"></span>&nbsp;封信</h2>
         <ul id="lettersBox" class="list"></ul>
         <div id="loadMoreHidden"></div>
         <div id="loadMore"></div>
         <div class="text-wrap">
-          <a href="./LETTER ADD.html"><i class="edit"></i>写信(审核后公开）</a>
+          <a href="https://www.bjyxszd.com/letter/add"><i class="edit"></i>写信（需审核，2026年会公开）</a>
         </div>
       </div>
     </div>
+
     <div class="tree-menu-wrap letter-menu">
       <ul>
-        <li><a class="type edit" href="./LETTER ADD.html" title="写信(审核后公开"></a></li>
+        <li><a class="type edit" href="https://www.bjyxszd.com/letter/add" title="写信（需审核，2026年会公开）"></a></li>
+        <li><a class="type top" href="https://www.bjyxszd.com/future#TopHere" title="回顶部"></a></li>
       </ul>
     </div>
   </div>
@@ -168,19 +146,26 @@
   <footer class="">
     <div class="container">
       <p class="links">
-        <span>|</span><a href="./ABOUT.html">关于本站</a> <span>|</span>
-        <a href="./FAQ.html">FAQ</a> <span>|</span>
+        <a href="https://www.bjyxszd.com/about">关于本站</a> <span>|</span>
+        <a href="https://www.bjyxszd.com/mdzs">魔道祖师</a> <span>|</span>
+        <a href="https://www.bjyxszd.com/faq">FAQ</a> <span>|</span>
+        <a href="https://www.bjyxszd.com/links">友情链接</a>
       </p>
-      <p class="meta">Copyright 2021 MariAo. All rights reserved.</p>
+      <p class="meta">Copyright 2019 BJYX. All rights reserved.</p>
+      <p class="beian">
+        <a href="http://www.beian.miit.gov.cn/" target="_blank">晋ICP备17006703号</a> <span>|</span>
+        <img src="./FUTURE_files/备案图标.png" alt="备案"><a href="http://www.beian.gov.cn/portal/index.do"
+          target="_blank">晋公网安备 14010702070546号</a>
+      </p>
     </div>
   </footer>
 
-  <script src="./public/js/jquery.min.js.下载"></script>
+  <script src="./FUTURE_files/jquery.min.js.下载"></script>
 
-  <script src="./public/js/main.js.下载"></script>
-  <script src="./public/js/handlebars.min.js.下载"></script>
-  <script src="./public/js/d3.min.js.下载"></script>
-  <script src="./public/js/d3.layout.cloud.js.下载"></script>
+  <script src="./FUTURE_files/main.js.下载"></script>
+  <script src="./FUTURE_files/handlebars.min.js.下载"></script>
+  <script src="./FUTURE_files/d3.min.js.下载"></script>
+  <script src="./FUTURE_files/d3.layout.cloud.js.下载"></script>
 
   <script id="lettersSumTemplate" type="text/x-handlebars-template">
   {{count}}
@@ -290,7 +275,21 @@
         }
       })
 
-     
+      // 词云
+      var fill = d3.scaleOrdinal(d3.schemeCategory10)
+      var layout = d3.layout.cloud()
+        .size([1082, 400])
+        .words([
+          '王一博', '一博', '王老师', '老王', '博弟', '王甜甜', '蓝湛', '蓝忘机', '含光君', '蓝二公子', '蓝二哥哥', '机兄', '美妆博主',
+          '肖战', '肖战啊', '肖老师', '老肖', '战哥', '战狼', '赞哥', '夷陵老祖', '魏无羡', '魏婴', '魏公子', '魏哥哥', '魏兄', '小赞']
+          .map(function (d) {
+            return { text: d, size: 10 + Math.random() * 40, test: "haha" };
+          }))
+        .padding(5)
+        .rotate(function () { return ~~(Math.random() * 2) * 90; })
+        .font("Impact")
+        .fontSize(function (d) { return d.size; })
+        .on("end", draw);
 
 
       layout.start();
